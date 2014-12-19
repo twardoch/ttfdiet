@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# ttfdiet v0.801 -- TTF DIacritics Encoding Tool
+# ttfdiet v0.802 -- TTF DIacritics Encoding Tool
 
 # Copyright 2014 Karsten Lücke
 # Copyright 2014 Adam Twardoch
@@ -19,7 +19,8 @@
 # limitations under the License.
 
 # CHANGELOG: 
-#  2014-06-28 v0.801 Adam: Rewritten usage and help, added -v option and ability to specify output file
+#  2014-12-19 v0.802 Adam: minor tweaks
+#  2014-12-18 v0.801 Adam: Rewritten usage and help, added -v option and ability to specify output file
 #  2014-06-28 v0.705 Karsten: switching to optparse, allow ignoring mark codepoints, output list of missing mark codepoints
 #  2014-06-26 v0.704 Karsten: identifying mark glyphs via mark/mkmk lookups, adding ot-sanitise validation if available
 #  2014-06-26 v0.703 Karsten: refined conditions for applying decomposition, shape deletion
@@ -62,8 +63,8 @@ def minusSets( class1,class2): return list( set(class1) - set(class2) )
 #########################################################################################################
 
 TOOL_URL = "https://github.com/twardoch/ttfdiet"
-TOOL_VERSION = "0.801"
-VERBOSE                           = 0
+TOOL_VERSION = "0.802"
+VERBOSE                           = 1
 REMOVE_PRECOMPOSED_OUTLINES       = 1
 REMOVE_PRECOMPOSED_FROM_GPOS_KERN = 1
 REMOVE_ALL_BUT_WIN_CMAP_SUBTABLES = 1
@@ -84,7 +85,7 @@ SKIP_MARKS_FINAL                  = None
 
 ADD_DUMMY_DSIG                    = 0
 
-OTS_DELETE_INVALID_FONTS          = 0
+OTS_SANITISE                      = 0
 OTS_PATH_OR_COMMAND               = "ot-sanitise" # this expects that the ot-sanitise binary is present in a system-known bin folder
 
 class NoWrapHelpFormatter(optparse.IndentedHelpFormatter):
@@ -123,7 +124,7 @@ def handleOptions():
 
 	global ADD_DUMMY_DSIG 
 
-	global OTS_DELETE_INVALID_FONTS 
+	global OTS_SANITISE 
 	global OTS_PATH_OR_COMMAND 
 
 	# parse argv:
@@ -155,30 +156,34 @@ Requirements
 ------------
 1. The tool requires Python 2.6 or newer and the fontTools/TTX package from:
    https://github.com/behdad/fonttools/
-2. inputfont must be a TrueType-flavored (.ttf) fonts that contains 
-   a 'glyf' table. It does NOT work with CFF-flavored .otf fonts. 
+2. inputfont must be a TrueType-flavored (.ttf) fonts that contains
+   a 'glyf' table. It does NOT work with CFF-flavored .otf fonts.
 3. inputfont should contain a 'GSUB' table.
-4. inputfont should contain combining marks (U+03xx) which should be assigned 
+4. inputfont should contain combining marks (U+03xx) which should be assigned
    to the mark class (3) in the 'GDEF' table.
-5. inputfont should contain a 'mark' GPOS feature that positions the combining 
-   mark glyphs over base glyphs. 
-6. Installing ot-sanitise from https://github.com/khaledhosny/ots is recommended.
+5. inputfont should contain a 'mark' GPOS feature that positions the combining
+   mark glyphs over base glyphs.
+6. ot-sanitise from https://github.com/khaledhosny/ots is recommended.
 
 Diet
 ----
-The tool applies a 'diet' to a .ttf font. The diet consists of two steps: 
+The tool applies a 'diet' to a .ttf font. The diet consists of two steps:
 
-1. It 'blanks' all glyphs that, in the 'cmap' table, represent precomposed 
-   Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE), 
-   i.e. it removes all contours and components for those glyphs from the 
-   'glyf' table (note: the tool cannot process the 'CFF' table). 
-2. It adds a 'GSUB' lookup that substitutes every glyph that represents 
-   a precomposed Unicode character with a sequence of glyphs that represent 
-   the Unicode canonical decomposition of that precomposed character, 
-   and adds the lookup to the 'ccmp' feature. 
-3. The tool attempts to run OTS (ot-sanitise), an open-source tool. Please 
-   check the results. If ot-sanitise fails, the font may not reliably work
-   in web browsers.
+1. It 'blanks' all glyphs that, in the 'cmap' table, represent precomposed
+   Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE),
+   i.e. it removes all contours and components for those glyphs from the
+   'glyf' table (note: the tool cannot process the 'CFF' table).
+2. It adds a 'GSUB' lookup that substitutes every glyph that represents
+   a precomposed Unicode character with a sequence of glyphs that represent
+   the Unicode canonical decomposition of that precomposed character,
+   and adds the lookup to the 'ccmp' feature.
+
+The typical size reduction of a multilingual font is 5–10%.
+
+Optionally, the tool attempts to run OTS (ot-sanitise) on the outputfont. 
+OTS is an open-source tool used by web browsers to verify web fonts before 
+they are displayed. If the ot-sanitise test fails, the font may not reliably 
+work in web browsers.
 
 Options
 -------
@@ -199,9 +204,9 @@ Not specified options will use the default values shown below."""
 		metavar=str(SAVE_FEA_FILE), 
 		nargs=1 )
 	group.add_option("-S", "--sanitise", 
-		help=u"skip font considered invalid by 'ot-sanitise' (if OTS is available)", 
-		default=OTS_DELETE_INVALID_FONTS, 
-		metavar=str(OTS_DELETE_INVALID_FONTS), 
+		help=u"1: test outputfont with 'ot-sanitise'; 2: also remove outputfont if test fails ", 
+		default=OTS_SANITISE, 
+		metavar=str(OTS_SANITISE), 
 		nargs=1 )
 	parser.add_option_group(group)
 	group = optparse.OptionGroup(parser, u"Core diet options")
@@ -227,8 +232,8 @@ Not specified options will use the default values shown below."""
 		nargs=1 )
 	group.add_option("-a", "--repmarks", 
 		help=u"report marks missing in font that would allow a better diet", 
-		default=OTS_DELETE_INVALID_FONTS, 
-		metavar=str(OTS_DELETE_INVALID_FONTS), 
+		default=OTS_SANITISE, 
+		metavar=str(OTS_SANITISE), 
 		nargs=1 )
 	parser.add_option_group(group)
 	group = optparse.OptionGroup(parser, u"Additional diet options")
@@ -326,7 +331,7 @@ This tool is open-source under the Apache 2 license, and is available from:
 
 	ADD_DUMMY_DSIG                      = int( options.__dict__["dsig"        ] )
 
-	OTS_DELETE_INVALID_FONTS            = int( options.__dict__["sanitise"    ] )
+	OTS_SANITISE            = int( options.__dict__["sanitise"    ] )
 
 	# return file names:
 	if len(args) < 1: 
@@ -771,7 +776,7 @@ def main(inPath, outPath):
 			decompLast = deepcopy(decomp)
 			while decomp:
 				decomp = getDecompositionData(decomp[2],missingMarks) # check if the base char is a composed one too!
-														 # cf: 01E0;LATIN CAPITAL LETTER A WITH DOT ABOVE AND MACRON;Lu;0;L;0226 0304;;;;N;LATIN CAPITAL LETTER A DOT MACRON;;;01E1;
+				# cf: 01E0;LATIN CAPITAL LETTER A WITH DOT ABOVE AND MACRON;Lu;0;L;0226 0304;;;;N;LATIN CAPITAL LETTER A DOT MACRON;;;01E1;
 				if decomp:
 					decompLast[1][0:1] = deepcopy(decomp[1])
 			if decompLast:
@@ -830,37 +835,42 @@ def main(inPath, outPath):
 	if VERBOSE: print "Saving %s..." % (outPath)
 	ttx.save( outPath )
 	ttx.close()
-	ttx = None		
+	ttx = None
+	inSize = os.path.getsize(inPath)
+	outSize = os.path.getsize(outPath)
+	if VERBOSE: print "Diet efficiency: %s%% (from %s to %s bytes)" % (float(int((1 - float(outSize)/inSize) * 10000))/100, inSize, outSize)
 
 	# validate:
-	error = 0
-	try:
-		p = Popen([r"%s" % OTS_PATH_OR_COMMAND, r"%s" % outPathPath, r"%s" % tempPath ],stderr=PIPE)
-	except:
-		p = 0
-		if VERBOSE and OTS_DELETE_INVALID_FONTS: print "ot-sanitise not found. Install https://github.com/khaledhosny/ots"
-	if p:
-		stdoutdata, stderrdata = p.communicate()
-		if stderrdata: # if no problems are found, ot-sanitise doesn't output anything
-			error = 1
-			if OTS_DELETE_INVALID_FONTS:
-				print "ot-sanitise did not validate the simplified font. Deleting it."
-			else:
-				if VERBOSE: print "ot-sanitise validated this font."
-			for line in stderrdata.strip().replace("\r\n","\n").replace("\r","\n").split("\n"):
-				if VERBOSE: print "    %s" % line.strip()
-	p=None; stderrdata=None; stdoutdata=None
-	if error:
-		# delete ot-sanitise file
-		# and the font file since it is invalid anyway:
-		if os.path.exists( tempPath ):
-			os.remove( tempPath )
-		if os.path.exists( outPath  ) and OTS_DELETE_INVALID_FONTS:
-			os.remove( outPath  )
-	else:
-		# always delete ot-sanitise file:
-		if os.path.exists( tempPath ):
-			os.remove( tempPath )
+	if OTS_SANITISE: 
+		error = 0
+		try:
+			p = Popen([r"%s" % OTS_PATH_OR_COMMAND, r"%s" % outPath, r"%s" % tempPath ],stderr=PIPE)
+		except:
+			p = 0
+			if VERBOSE and OTS_SANITISE: print "ot-sanitise not found. Install https://github.com/khaledhosny/ots"
+		if p:
+			stdoutdata, stderrdata = p.communicate()
+			if stderrdata: # if no problems are found, ot-sanitise doesn't output anything
+				error = 1
+				if OTS_SANITISE:
+					print "ot-sanitise did not validate the simplified font. ", 
+					if OTS_SANITISE > 1: print "Deleting it."
+				else:
+					if VERBOSE: print "ot-sanitise validated this font."
+				for line in stderrdata.strip().replace("\r\n","\n").replace("\r","\n").split("\n"):
+					if VERBOSE: print "    %s" % line.strip()
+		p=None; stderrdata=None; stdoutdata=None
+		if error:
+			# delete ot-sanitise file
+			# and the font file since it is invalid anyway:
+			if os.path.exists( tempPath ):
+				os.remove( tempPath )
+			if os.path.exists( outPath  ) and OTS_SANITISE > 1:
+				os.remove( outPath  )
+		else:
+			# always delete ot-sanitise file:
+			if os.path.exists( tempPath ):
+				os.remove( tempPath )
 	outPath=None; tempPath=None
 
 if __name__ == "__main__":

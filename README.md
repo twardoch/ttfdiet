@@ -1,13 +1,13 @@
 ttfdiet
 =======
+**ttfdiet** (*TTF DIacritics Encoding Tool*) applies a “diet” to a .ttf font: it modernizes
+the way in which glyphs for precomposed Unicode characters are stored in
+a TrueType-flavored OpenType font, and reduces the font's file size. 
+
+Credits
+-------
 * by: [Karsten Lücke](./AUTHORS) and [Adam Twardoch](./AUTHORS) 
 * homepage: http://github.com/twardoch/ttfdiet
-
-Introduction
-------------
-'TTF DIacritics Encoding Tool' applies a diet to a .ttf font: it modernizes
-the way in which glyphs for precomposed Unicode characters are stored in
-a TrueType-flavored OpenType font, and reduces the font's file size.
 
 Disclaimer
 ----------
@@ -34,7 +34,7 @@ Requirements
    to the mark class (3) in the 'GDEF' table.
 5. inputfont should contain a 'mark' GPOS feature that positions the combining
    mark glyphs over base glyphs.
-6. Installing ot-sanitise from https://github.com/khaledhosny/ots is recommended.
+6. ot-sanitise from https://github.com/khaledhosny/ots is recommended.
 
 Diet
 ----
@@ -48,9 +48,13 @@ The tool applies a 'diet' to a .ttf font. The diet consists of two steps:
    a precomposed Unicode character with a sequence of glyphs that represent
    the Unicode canonical decomposition of that precomposed character,
    and adds the lookup to the 'ccmp' feature.
-3. The tool attempts to run OTS (ot-sanitise), an open-source tool. Please
-   check the results. If ot-sanitise fails, the font may not reliably work
-   in web browsers.
+
+The typical size reduction of a multilingual font is 5–10%.
+
+Optionally, the tool attempts to run OTS (ot-sanitise) on the outputfont. 
+OTS is an open-source tool used by web browsers to verify web fonts before 
+they are displayed. If the ot-sanitise test fails, the font may not reliably 
+work in web browsers.
 
 Usage
 -----
@@ -65,12 +69,12 @@ Not specified options will use the default values shown below.
 Options:
   --version             show program's version number and exit
   -h, --help            show this help message and exit
-  -v 0, --verbose=0     print additional information during processing
+  -v 1, --verbose=1     print additional information during processing
 
   File handling:
     -f 0, --fea=0       save 'ccmp' feature in AFDKO-syntax .fea file
-    -S 0, --sanitise=0  skip font considered invalid by 'ot-sanitise' (if OTS
-                        is available)
+    -S 0, --sanitise=0  1: test outputfont with 'ot-sanitise'; 2: also remove
+                        outputfont if test fails
 
   Core diet options:
     -g 1, --glyf=1      remove components and contours from precomposed glyphs
@@ -93,6 +97,22 @@ Options:
     -r 1, --rename=1    add 'Diet' prefix to 'name' records (also enables
                         --name)
     -d 0, --dsig=0      add empty 'DSIG' table
+
+```
+Examples
+--------
+
+The [examples](./examples/) folder contains the original font *DroidSerif-Regular.ttf* (v1.03, size: 248,904 bytes), and the dieted font *DroidSerif-Regular.diet.ttf* (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. 
+
+```
+$ ./ttfdiet.py examples/DroidSerif-Regular.ttf
+Skipping marks with codepoints 031B 0321 0322 0334 0335 0336 0337 0338.
+Dieting DroidSerif-Regular.ttf...
+'GDEF' table's GlyphClassDef doesn't flag glyph 'uni0487' as mark. Corrected.
+'GDEF' table's GlyphClassDef doesn't flag glyph 'uni20F0' as mark. Corrected.
+Saving examples/DroidSerif-Regular.diet.ttf...
+Diet efficiency: 10.0% (from 248904 to 224000 bytes)
+Done.
 ```
 Software License
 ----------------
