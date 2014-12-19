@@ -19,7 +19,7 @@ It is intended to create fonts that:
   an optimization method similar to the one used by the tool,
 * test the level of applications' basic OTL support, most notably for
   'ccmp' decomposition and 'mark'/'mkmk' attachment. To test OTL support,
-  install a dieted font and type a precomposed character such "?", "?", etc.
+  install a dieted font and type a precomposed character such "Ä", "á", etc.
 
 This tool is NOT intended to produce shipping-quality fonts.
 
