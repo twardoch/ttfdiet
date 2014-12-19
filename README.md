@@ -1,7 +1,7 @@
 ttfdiet
 =======
-http://github.com/twardoch/ttfdiet
-by [AUTHORS](./AUTHORS) and [CONTRIBUTORS](./CONTRIBUTORS)
+* by: [Karsten Lücke](./AUTHORS) and [Adam Twardoch](./AUTHORS) 
+* homepage: http://github.com/twardoch/ttfdiet
 
 Introduction
 ------------
@@ -97,5 +97,3 @@ Options:
 Software License
 ----------------
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
-This software has many dependencies under other, compatible, licenses.
