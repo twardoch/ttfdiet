@@ -37,9 +37,14 @@ Requirements
    mark glyphs over base glyphs.
 6. ot-sanitise from https://github.com/khaledhosny/ots is recommended.
 
-Diet
-----
-The tool applies a “diet” to a .ttf font. The diet consists of the following steps:
+Main functionality (“diet”)
+---------------------------
+The tool applies a “diet” to a .ttf font — it optimizes how precomposed 
+Unicode characters such as “Ä” are expressed in the internal font structures
+of a TrueType-flavored OpenType font. The diet reduces the size of the font, 
+and also eliminates redundant and ambiguous information in the font. 
+
+The diet consists of the following steps:
 
 1. It “blanks” all glyphs that, in the “cmap” table, represent precomposed
    Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE),
@@ -64,8 +69,8 @@ Limitations
 * The tool assumes that the OpenType Layout engine which will use the font will 
   “do the right thing”, i.e. apply the OpenType “ccmp”, “mark” and “mkmk” features 
   during the text layout. Unfortunately, some apps, most notably Microsoft Word 
-  and the Adobe CC apps, don’t quite do that, so the dieted fonts won’t perform 
-  in these apps as expected. 
+  and the Adobe CC apps, don’t quite do that, so **the dieted fonts won’t perform 
+  in these apps as expected**. 
 * The tool currently only deletes unneeded kerning pairs from “GPOS” PairPos 
   Format 1 subtables (single glyph pairs, typically used for “exception kerning”). 
   The tool currently does not in any way process “GPOS” PairPos Format 2 subtables, 
