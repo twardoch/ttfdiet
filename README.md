@@ -11,14 +11,15 @@ Credits
 
 Disclaimer
 ----------
-The tool is EXPERIMENTAL and intended for experienced font developers.
+The tool is **EXPERIMENTAL**, a proof-of-concept, and is intended for experienced 
+font developers.
 
-It is intended to create fonts that:
+The tool is intended to create fonts that:
 
 * demonstrate the file size reduction that can be achieved by
   an optimization method similar to the one used by the tool,
 * test the level of applications’ basic OTL support, most notably for
-  ’ccmp’ decomposition and ’mark’/’mkmk’ attachment. To test OTL support,
+  “ccmp” decomposition and “mark”/“mkmk” attachment. To test OTL support,
   install a dieted font and type a precomposed character such “Ä”, “á”, etc.
 
 This tool is **NOT** intended to produce shipping-quality fonts.
