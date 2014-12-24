@@ -2,7 +2,7 @@ ttfdiet
 =======
 **ttfdiet** (*TTF DIacritics Encoding Tool*) applies a “diet” to a .ttf font: it modernizes
 the way in which glyphs for precomposed Unicode characters are stored in
-a TrueType-flavored OpenType font, and reduces the font's file size. 
+a TrueType-flavored OpenType font, and reduces the font’s file size. 
 
 Credits
 -------
@@ -42,7 +42,7 @@ Main functionality (“diet”)
 The tool applies a “diet” to a .ttf font — it optimizes how precomposed 
 Unicode characters such as “Ä” are expressed in the internal font structures
 of a TrueType-flavored OpenType font. The diet reduces the size of the font, 
-and also eliminates redundant and ambiguous information in the font. 
+and also eliminates certain redundant and ambiguous information in the font. 
 
 The diet consists of the following steps:
 
