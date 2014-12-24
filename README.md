@@ -137,6 +137,41 @@ Saving examples/DroidSerif-Regular.diet.ttf...
 Diet efficiency: 10.0% (from 248904 to 224000 bytes)
 Done.
 ```
+Test results
+------------
+We have performed some tests of a dieted font (*DroidSerif-Regular.diet.ttf*) in some popular applications 
+in some operating systems. If the “OK?” column says “yes”, then the test word *Täćkòs* displayed correctly 
+in the app using the dieted test font. If the column says “no”, then blank glyphs appeared in place 
+of the accented characters (which indicates that the “ccmp” and “mark” features were not applied). 
+
+
+*OK?* | *App* | *Ver* | *OS* | *Note*
+---------| ------| ------| -----| ----
+no | Adobe Illustrator | CC 2014 | OS X 10.10 | Every-line Composer
+no | Adobe Illustrator | CC 2014 | OS X 10.10 | Middle Eastern Composer
+no | Adobe InDesign | CC 2014 | OS X 10.10 | Paragraph Composer
+no | Adobe InDesign | CC 2014 | OS X 10.10 | World-Ready Composer
+no | Adobe Photoshop | CC 2014 | OS X 10.10 | 
+yes | Affinity Designer | 1.0.21458 | OS X 10.10 | 
+yes | Apple Keynote | 6.5 | OS X 10.10 | 
+yes | Apple Pages | 5.5 | OS X 10.10 | 
+yes | Apple Safari | 8 | OS X 10.10 | 
+yes | Apple TextEdit | 1.10 | OS X 10.10 | 
+yes | CorelDRAW! | X7 | Windows 7 | 
+no | FontLab Pad | 1.1.0 | OS X 10.10 | 
+yes | Google Chrome | 39 | OS X 10.10 | 
+yes | LibreOffice | 4.3 | OS X 10.10 | 
+yes | MS Internet Explorer | 11 | Windows 7 | 
+yes | MS Notepad | 6.1 | Windows 7 | 
+no | MS Word | 2011 | OS X 10.10 | 
+no | MS Word | 2013 | Windows 7 | 
+no | MS WordPad | | Windows 7 | 
+yes | Mozilla Firefox | 34 | OS X 10.10 | 
+buggy | NeoOffice | 2014.6 | OS X 10.10 | wrong kerning
+yes | Opera | 22 | Windows 7 | 
+no | QuarkXPress | 10 | OS X 10.10 | 
+yes | RedleX Mellel | 3.2 | OS X 10.10 | 
+
 Software License
 ----------------
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
