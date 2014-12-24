@@ -158,7 +158,7 @@ yes | Apple Pages | 5.5 | OS X 10.10 |
 yes | Apple Safari | 8 | OS X 10.10 | 
 yes | Apple TextEdit | 1.10 | OS X 10.10 | 
 yes | CorelDRAW! | X7 | Windows 7 | 
-no | FontLab Pad | 1.1.0 | OS X 10.10 | 
+buggy | FontLab Pad | 1.1.0 | OS X 10.10 | marks without base chars
 yes | Google Chrome | 39 | OS X 10.10 | 
 yes | LibreOffice | 4.3 | OS X 10.10 | 
 yes | MS Internet Explorer | 11 | Windows 7 | 
