@@ -165,7 +165,7 @@ yes | MS Internet Explorer | 11 | Windows 7 |
 yes | MS Notepad | 6.1 | Windows 7 | 
 no | MS Word | 2011 | OS X 10.10 | 
 no | MS Word | 2013 | Windows 7 | 
-no | MS WordPad | | Windows 7 | 
+no | MS WordPad | | Windows 7 | 
 yes | Mozilla Firefox | 34 | OS X 10.10 | 
 buggy | NeoOffice | 2014.6 | OS X 10.10 | wrong kerning
 yes | Opera | 22 | Windows 7 | 
