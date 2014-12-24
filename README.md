@@ -17,37 +17,39 @@ It is intended to create fonts that:
 
 * demonstrate the file size reduction that can be achieved by
   an optimization method similar to the one used by the tool,
-* test the level of applications' basic OTL support, most notably for
-  'ccmp' decomposition and 'mark'/'mkmk' attachment. To test OTL support,
-  install a dieted font and type a precomposed character such "Ä", "á", etc.
+* test the level of applications’ basic OTL support, most notably for
+  ’ccmp’ decomposition and ’mark’/’mkmk’ attachment. To test OTL support,
+  install a dieted font and type a precomposed character such “Ä”, “á”, etc.
 
-This tool is NOT intended to produce shipping-quality fonts.
+This tool is **NOT** intended to produce shipping-quality fonts.
 
 Requirements
 ------------
 1. The tool requires Python 2.6 or newer and the fontTools/TTX package from:
    https://github.com/behdad/fonttools/
 2. inputfont must be a TrueType-flavored (.ttf) fonts that contains
-   a 'glyf' table. It does NOT work with CFF-flavored .otf fonts.
-3. inputfont should contain a 'GSUB' table.
+   a “glyf” table. It does NOT work with CFF-flavored .otf fonts.
+3. inputfont should contain a “GSUB” table.
 4. inputfont should contain combining marks (U+03xx) which should be assigned
-   to the mark class (3) in the 'GDEF' table.
-5. inputfont should contain a 'mark' GPOS feature that positions the combining
+   to the mark class (3) in the “GDEF” table.
+5. inputfont should contain a “mark” GPOS feature that positions the combining
    mark glyphs over base glyphs.
 6. ot-sanitise from https://github.com/khaledhosny/ots is recommended.
 
 Diet
 ----
-The tool applies a 'diet' to a .ttf font. The diet consists of two steps:
+The tool applies a “diet” to a .ttf font. The diet consists of the following steps:
 
-1. It 'blanks' all glyphs that, in the 'cmap' table, represent precomposed
+1. It “blanks” all glyphs that, in the “cmap” table, represent precomposed
    Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE),
    i.e. it removes all contours and components for those glyphs from the
-   'glyf' table (note: the tool cannot process the 'CFF' table).
-2. It adds a 'GSUB' lookup that substitutes every glyph that represents
+   “glyf” table (note: the tool cannot process the “CFF” table).
+3. It deletes kerning pairs in the “GPOS” “kern” feature that involve 
+   any glyphs which have been “blanked” in the first step. 
+3. It adds a “GSUB” lookup that substitutes every glyph that represents
    a precomposed Unicode character with a sequence of glyphs that represent
    the Unicode canonical decomposition of that precomposed character,
-   and adds the lookup to the 'ccmp' feature.
+   and adds the lookup to the “ccmp” feature.
 
 The typical size reduction of a multilingual font is 5–10%.
 
@@ -55,6 +57,18 @@ Optionally, the tool attempts to run OTS (ot-sanitise) on the outputfont.
 OTS is an open-source tool used by web browsers to verify web fonts before 
 they are displayed. If the ot-sanitise test fails, the font may not reliably 
 work in web browsers.
+
+Limitations
+-----------
+* The tool assumes that the OpenType Layout engine which will use the font will 
+  “do the right thing”, i.e. apply the OpenType “ccmp”, “mark” and “mkmk” features 
+  during the text layout. Unfortunately, some apps, most notably Microsoft Word 
+  and the Adobe CC apps, don’t quite do that, so the dieted fonts won’t perform 
+  in these apps as expected. 
+* The tool currently only deletes unneeded kerning pairs from “GPOS” PairPos 
+  Format 1 subtables (single glyph pairs, typically used for “exception kerning”). 
+  The tool currently does not in any way process “GPOS” PairPos Format 2 subtables, 
+  used for “class kerning”. Also, it does not add any contextual kerning. 
 
 Usage
 -----
