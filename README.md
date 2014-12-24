@@ -49,7 +49,9 @@ The diet consists of the following steps:
 1. It “blanks” all glyphs that, in the “cmap” table, represent precomposed
    Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE),
    i.e. it removes all contours and components for those glyphs from the
-   “glyf” table (note: the tool cannot process the “CFF” table).
+   “glyf” table. Note: the tool cannot process the “CFF” table. Also note 
+   that the glyphs are “blanked” but not deleted, as their presence is 
+   required by the font’s “cmap” table. 
 3. It deletes kerning pairs in the “GPOS” “kern” feature that involve 
    any glyphs which have been “blanked” in the first step. 
 3. It adds a “GSUB” lookup that substitutes every glyph that represents
@@ -75,6 +77,7 @@ Limitations
   Format 1 subtables (single glyph pairs, typically used for “exception kerning”). 
   The tool currently does not in any way process “GPOS” PairPos Format 2 subtables, 
   used for “class kerning”. Also, it does not add any contextual kerning. 
+* The tool does not process the legacy TrueType “kern” table. 
 
 Usage
 -----
