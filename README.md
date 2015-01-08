@@ -6,8 +6,9 @@ a TrueType-flavored OpenType font, and reduces the font’s file size.
 
 Credits
 -------
-* by: [Karsten Lücke](./AUTHORS) and [Adam Twardoch](./AUTHORS) 
-* homepage: http://github.com/twardoch/ttfdiet
+* Ideas and code by: [Karsten Lücke](./AUTHORS) and [Adam Twardoch](./AUTHORS) 
+* Homepage: http://github.com/twardoch/ttfdiet
+* Many thanks to [Dave Crossland](https://github.com/davelab6) and [Google Fonts](https://github.com/googlefonts) for the financial and organizational support. 
 
 Disclaimer
 ----------
