@@ -80,7 +80,7 @@ DEFAULT_OUTPATH_ADDITION          = u".diet"
 
 REPORT_MISSING_MARKS              = 1
 CORRECT_MARK_CLASS                = 1
-SKIP_MARKS                        = u"031B,0321,0322,0334,0335,0336,0337,0338" # you may not want to decompose precomposed ones that involve overstruck/overlay marks, horns or hooks
+SKIP_MARKS                        = u"031B,0338" # you may not want to decompose precomposed ones that involve horn or overstruck long solidus
 SKIP_MARKS_FINAL                  = None
 
 ADD_DUMMY_DSIG                    = 0
