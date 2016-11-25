@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# ttfdiet v0.802 -- TTF DIacritics Encoding Tool
+# ttfdiet v0.803 -- TTF DIacritics Encoding Tool
 
 # Copyright 2014 Karsten Lücke
 # Copyright 2014 Adam Twardoch
@@ -19,6 +19,7 @@
 # limitations under the License.
 
 # CHANGELOG: 
+#  2016-11-25 v0.803 Adam: Minor tweaks with filesystem handling
 #  2014-12-19 v0.802 Adam: minor tweaks
 #  2014-12-18 v0.801 Adam: Rewritten usage and help, added -v option and ability to specify output file
 #  2014-06-28 v0.705 Karsten: switching to optparse, allow ignoring mark codepoints, output list of missing mark codepoints
@@ -356,6 +357,7 @@ PPF2_SUPPORTED = 0 # not tested yet! and deactivated ...
 
 def saveFile(data,file):
 	modus = "wb"
+	file = os.path.abspath(file)
 	if os.path.exists(file): os.remove(file)
 	directory = os.path.dirname(file)
 	if not os.path.exists(directory): os.makedirs(directory)
@@ -717,7 +719,6 @@ def main(inPath, outPath):
 	except TTLibError:
 		print "Cannot open %s" % inPath
 		sys.exit(2)
-
 	cmap = ttx["cmap"].getcmap(3,10)
 	if not cmap: 
 		cmap = ttx["cmap"].getcmap(3,1)
