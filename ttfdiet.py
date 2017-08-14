@@ -36,6 +36,8 @@
 #
 #########################################################################################################
 
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 import os
 import os.path
@@ -44,12 +46,14 @@ from copy import deepcopy
 from struct import pack
 from subprocess import Popen,PIPE
 import optparse
+import six
+from six.moves import range
 
 try:
 	from fontTools.ttLib import TTFont, TTLibError, newTable
 	from fontTools.ttLib.tables.otTables import *
 except: 
-	print "Install https://github.com/behdad/fonttools/archive/master.zip" 
+	print("Install https://github.com/behdad/fonttools/archive/master.zip") 
 	sys.exit(1)
 
 try: set
@@ -325,9 +329,9 @@ This tool is open-source under the Apache 2 license, and is available from:
 	SKIP_MARKS_FINAL = cleanUpList(SKIP_MARKS_FINAL)
 	SKIP_MARKS_FINAL.sort()
 	if len(SKIP_MARKS_FINAL) == 1:
-		if VERBOSE: print "Skipping mark with codepoint %s."   % " ".join(SKIP_MARKS_FINAL)
+		if VERBOSE: print("Skipping mark with codepoint %s."   % " ".join(SKIP_MARKS_FINAL))
 	elif SKIP_MARKS_FINAL:
-		if VERBOSE: print "Skipping marks with codepoints %s." % " ".join(SKIP_MARKS_FINAL)
+		if VERBOSE: print("Skipping marks with codepoints %s." % " ".join(SKIP_MARKS_FINAL))
 	SKIP_MARKS_FINAL = [int(m, 16) for m in SKIP_MARKS_FINAL if len(m) ] ; m=None
 
 	ADD_DUMMY_DSIG                      = int( options.__dict__["dsig"        ] )
@@ -336,7 +340,7 @@ This tool is open-source under the Apache 2 license, and is available from:
 
 	# return file names:
 	if len(args) < 1: 
-		print "Please specify an inputfont."
+		print("Please specify an inputfont.")
 		sys.exit(2)
 	elif len(args) < 2: 
 		inPath = args[0]
@@ -374,19 +378,19 @@ def unicodeIntToHexstr(intUnicode):
 def testFont(ttx,umap,nmap,markGlyphs):
 	fontIsFine = 1
 	# are mark glyphs there?
-	codes = umap.keys()
+	codes = list(umap.keys())
 	marksFound = len(strictSets(MARK_GLYPH_CODEPOINT_RANGE,codes))
 	if not marksFound:
-				if VERBOSE: print "Mark table glyphs missing."
+				if VERBOSE: print("Mark table glyphs missing.")
 				fontIsFine = 0			
 	# is GSUB there? (Won't create one yet.)
 	if "GSUB" not in ttx:
 				fontIsFine = 0
-				if VERBOSE: print "'GSUB' table missing."
+				if VERBOSE: print("'GSUB' table missing.")
 	# is GPOS there and is mark feature there?
 	if "GPOS" not in ttx:
 				fontIsFine = 0
-				if VERBOSE: print "'GPOS' table missing."
+				if VERBOSE: print("'GPOS' table missing.")
 	else:
 		markThere = 0	
 		for r in ttx["GPOS"].table.FeatureList.FeatureRecord:
@@ -394,18 +398,18 @@ def testFont(ttx,umap,nmap,markGlyphs):
 				markThere = 1
 		if not markThere:
 				fontIsFine = 0
-				if VERBOSE: print "'GPOS' table misses 'mark' feature."
+				if VERBOSE: print("'GPOS' table misses 'mark' feature.")
 	# is GDEF there and are marks classified as mark glyphs?
 	if "GDEF" not in ttx:
 				fontIsFine = 0
-				if VERBOSE: print "'GDEF' table missing."
+				if VERBOSE: print("'GDEF' table missing.")
 	else:
 		try:
 				classdefs = ttx["GDEF"].table.GlyphClassDef.classDefs
 		except:
 				classdefs = 0
 				fontIsFine = 0
-				if VERBOSE: print "'GDEF' table misses GlyphClassDef."
+				if VERBOSE: print("'GDEF' table misses GlyphClassDef.")
 		if classdefs:
 			# by unicode codepoint:
 			for n in nmap:
@@ -418,22 +422,22 @@ def testFont(ttx,umap,nmap,markGlyphs):
 						if n in classdefs:
 							if classdefs[n] != 3 and CORRECT_MARK_CLASS:
 								classdefs[n] = 3
-								if VERBOSE: print "'GDEF' table's GlyphClassDef doesn't flag glyph '%s' as mark. Corrected." % n
+								if VERBOSE: print("'GDEF' table's GlyphClassDef doesn't flag glyph '%s' as mark. Corrected." % n)
 						else:
 							# do that anyway ...
 								classdefs[n] = 3
-								if VERBOSE: print "'GDEF' table's GlyphClassDef doesn't contain mark glyph '%s'. Added." % n
+								if VERBOSE: print("'GDEF' table's GlyphClassDef doesn't contain mark glyph '%s'. Added." % n)
 			n=None
 			# by actual use in mark, mkmk, liga-mark lookups:
 			for n in markGlyphs:
 						if n in classdefs:
 							if classdefs[n] != 3 and CORRECT_MARK_CLASS:
 								classdefs[n] = 3
-								if VERBOSE: print "'GDEF' table's GlyphClassDef doesn't flag glyph '%s' as mark. Corrected." % n
+								if VERBOSE: print("'GDEF' table's GlyphClassDef doesn't flag glyph '%s' as mark. Corrected." % n)
 						else:
 							# do that anyway ...
 								classdefs[n] = 3
-								if VERBOSE: print "'GDEF' table's GlyphClassDef doesn't contain mark glyph '%s'. Added." % n
+								if VERBOSE: print("'GDEF' table's GlyphClassDef doesn't contain mark glyph '%s'. Added." % n)
 	# report:
 	return fontIsFine
 
@@ -478,7 +482,7 @@ def getMarkGlyphs(ttx):
 def removeOutlines(ttx,glyphs_removeOutlinesAndInstructions):
 	# remove contours and components:
 	if "glyf" not in ttx:
-		if VERBOSE: print "This is not a 'glyf' based font. Won't remove contours/components."
+		if VERBOSE: print("This is not a 'glyf' based font. Won't remove contours/components.")
 		return
 	if not glyphs_removeOutlinesAndInstructions:
 		return
@@ -579,7 +583,7 @@ def removeGPOSkern(ttx,glyphs_removeOutlinesAndInstructions):
 					# class defs:
 					class1Before = cleanUpList([ int(subtable.ClassDef1.classDefs[g]) for g in subtable.ClassDef1.classDefs ]+[0]) # includes 0
 					class2Before = cleanUpList([ int(subtable.ClassDef2.classDefs[g]) for g in subtable.ClassDef2.classDefs ]+[0]) # includes 0
-					glyphs1 = subtable.ClassDef1.classDefs.keys()
+					glyphs1 = list(subtable.ClassDef1.classDefs.keys())
 					class1glyphs = {}
 					class2glyphs = {}
 					for g1 in glyphs1:
@@ -587,7 +591,7 @@ def removeGPOSkern(ttx,glyphs_removeOutlinesAndInstructions):
 						except: class1glyphs[ subtable.ClassDef1.classDefs[g1] ]  = [g1]
 						if g1 in glyphs_removeOutlinesAndInstructions:
 							del subtable.ClassDef1.classDefs[g1]
-					glyphs2 = subtable.ClassDef2.classDefs.keys()
+					glyphs2 = list(subtable.ClassDef2.classDefs.keys())
 					for g2 in glyphs2:
 						try:    class2glyphs[ subtable.ClassDef2.classDefs[g2] ] += [g2]
 						except: class2glyphs[ subtable.ClassDef2.classDefs[g2] ]  = [g2]
@@ -595,8 +599,8 @@ def removeGPOSkern(ttx,glyphs_removeOutlinesAndInstructions):
 							del subtable.ClassDef2.classDefs[g2]
 					class1After = cleanUpList([ int(subtable.ClassDef1.classDefs[g]) for g in subtable.ClassDef1.classDefs ]+[0]) # includes 0
 					class2After = cleanUpList([ int(subtable.ClassDef2.classDefs[g]) for g in subtable.ClassDef2.classDefs ]+[0]) # includes 0
-					if VERBOSE: print "class1glyphs",class1glyphs
-					if VERBOSE: print "class2glyphs",class2glyphs
+					if VERBOSE: print("class1glyphs",class1glyphs)
+					if VERBOSE: print("class2glyphs",class2glyphs)
 					# THE PART BELOW IS NOT TESTED YET:
 					# class count:
 					# (mind that deleting glyphs from classes
@@ -604,12 +608,12 @@ def removeGPOSkern(ttx,glyphs_removeOutlinesAndInstructions):
 					correctClass1 = 0
 					if subtable.Class1Count != len(class1After):
 						correctClass1 = 1
-						if VERBOSE: print "Deleted %s class1!" % (subtable.Class1Count-len(class1After))
+						if VERBOSE: print("Deleted %s class1!" % (subtable.Class1Count-len(class1After)))
 						subtable.Class1Count = len(class1After)
 					correctClass2 = 0
 					if subtable.Class2Count != len(class2After):
 						correctClass2 = 1
-						if VERBOSE: print "Deleted %s class2!" % (subtable.Class2Count-len(class2After))
+						if VERBOSE: print("Deleted %s class2!" % (subtable.Class2Count-len(class2After)))
 						subtable.Class2Count = len(class2After)
 					# class records:
 					for c1idx in range(len(subtable.Class1Record)-1,-1,-1):
@@ -620,8 +624,8 @@ def removeGPOSkern(ttx,glyphs_removeOutlinesAndInstructions):
 								if c2idx not in class2After:
 									del subtable.Class1Record[c1idx].Class2Record[c2idx]
 					# adjust class defs:
-					if VERBOSE: print "class1After",class1After
-					if VERBOSE: print "class2After",class2After
+					if VERBOSE: print("class1After",class1After)
+					if VERBOSE: print("class2After",class2After)
 					if correctClass1:
 						for c1aIdx in range(len(class1After)):
 							if class1After[c1aIdx] != c1aIdx: # c1aIdx is new index, class1After[c1aIdx] is old index
@@ -713,24 +717,24 @@ def addDummyDSIG(ttx):
 	ttx["DSIG"] = dsig
 
 def main(inPath, outPath): 
-	if VERBOSE: print "Dieting %s..." % (os.path.basename(inPath))
+	if VERBOSE: print("Dieting %s..." % (os.path.basename(inPath)))
 	try:
 		ttx = TTFont(inPath)
 	except TTLibError:
-		print "Cannot open %s" % inPath
+		print("Cannot open %s" % inPath)
 		sys.exit(2)
 	cmap = ttx["cmap"].getcmap(3,10)
 	if not cmap: 
 		cmap = ttx["cmap"].getcmap(3,1)
 	if cmap: 
-		umap = dict((u,n) for u, n in cmap.cmap.iteritems() )
+		umap = dict((u,n) for u, n in six.iteritems(cmap.cmap) )
 #		nmap = dict((umap[k], k) for k in umap)
 # glyph may be associated with more than one u!!!
 		nmap = {}
 		for k in umap:
 			nmap.setdefault(umap[k],[]).append(k)
 	else:
-		if VERBOSE: print "'cmap' table misses a Windows-platform subtable."
+		if VERBOSE: print("'cmap' table misses a Windows-platform subtable.")
 		return
 
 	def getDecompositionData(u,missingMarks):
@@ -762,7 +766,7 @@ def main(inPath, outPath):
 	markGlyphs = getMarkGlyphs(ttx)
 	
 	if not testFont(ttx,umap,nmap,markGlyphs):
-		if VERBOSE: print "This font is useless. Ignoring it."
+		if VERBOSE: print("This font is useless. Ignoring it.")
 		return
 
 	glyphOrder = ttx.getGlyphOrder()
@@ -793,16 +797,16 @@ def main(inPath, outPath):
 		try:    lines    += [ linesDict[g] ]
 		except: pass
 	if len(ccmpSubsDict) != len(ccmpSubs):
-		if VERBOSE: print "(Lost substitutions when creating ccmpSubs.)"
+		if VERBOSE: print("(Lost substitutions when creating ccmpSubs.)")
 	if len(linesDict) != len(lines):
-		if VERBOSE: print "(Lost substitutions when creating lines.)"
+		if VERBOSE: print("(Lost substitutions when creating lines.)")
 
 	# report missing marks:
 	missingMarks = cleanUpList(missingMarks)
 	missingMarks.sort()
 	if missingMarks:
-		if VERBOSE: print "For more effective decomposition you might add the following marks:"
-		if VERBOSE: print " ".join(missingMarks)
+		if VERBOSE: print("For more effective decomposition you might add the following marks:")
+		if VERBOSE: print(" ".join(missingMarks))
 	
 	# output AFDKO syntax .fea file:
 	if len(lines):
@@ -812,7 +816,7 @@ def main(inPath, outPath):
 		if SAVE_FEA_FILE:
 			saveFile("\n".join(ccmpfea),os.path.splitext(outPath)[0]+".ccmp.fea")
 	else:
-		if VERBOSE: print "Nothing there to decompose."
+		if VERBOSE: print("Nothing there to decompose.")
 
 	if REMOVE_PRECOMPOSED_OUTLINES       and lines: # only makes sense if there's something to decompose
 		removeOutlines(ttx,glyphs_removeOutlinesAndInstructions)
@@ -833,13 +837,13 @@ def main(inPath, outPath):
 		removePostNames(            ttx)
 
 	tempPath = outPath+"temp"
-	if VERBOSE: print "Saving %s..." % (outPath)
+	if VERBOSE: print("Saving %s..." % (outPath))
 	ttx.save( outPath )
 	ttx.close()
 	ttx = None
 	inSize = os.path.getsize(inPath)
 	outSize = os.path.getsize(outPath)
-	if VERBOSE: print "Diet efficiency: %s%% (from %s to %s bytes)" % (float(int((1 - float(outSize)/inSize) * 10000))/100, inSize, outSize)
+	if VERBOSE: print("Diet efficiency: %s%% (from %s to %s bytes)" % (float(int((1 - float(outSize)/inSize) * 10000))/100, inSize, outSize))
 
 	# validate:
 	if OTS_SANITISE: 
@@ -848,18 +852,18 @@ def main(inPath, outPath):
 			p = Popen([r"%s" % OTS_PATH_OR_COMMAND, r"%s" % outPath, r"%s" % tempPath ],stderr=PIPE)
 		except:
 			p = 0
-			if VERBOSE and OTS_SANITISE: print "ot-sanitise not found. Install https://github.com/khaledhosny/ots"
+			if VERBOSE and OTS_SANITISE: print("ot-sanitise not found. Install https://github.com/khaledhosny/ots")
 		if p:
 			stdoutdata, stderrdata = p.communicate()
 			if stderrdata: # if no problems are found, ot-sanitise doesn't output anything
 				error = 1
 				if OTS_SANITISE:
-					print "ot-sanitise did not validate the simplified font. ", 
-					if OTS_SANITISE > 1: print "Deleting it."
+					print("ot-sanitise did not validate the simplified font. ", end=' ') 
+					if OTS_SANITISE > 1: print("Deleting it.")
 				else:
-					if VERBOSE: print "ot-sanitise validated this font."
+					if VERBOSE: print("ot-sanitise validated this font.")
 				for line in stderrdata.strip().replace("\r\n","\n").replace("\r","\n").split("\n"):
-					if VERBOSE: print "    %s" % line.strip()
+					if VERBOSE: print("    %s" % line.strip())
 		p=None; stderrdata=None; stdoutdata=None
 		if error:
 			# delete ot-sanitise file
@@ -880,4 +884,4 @@ if __name__ == "__main__":
 		args.append("-h")
 	inPath, outPath = handleOptions()
 	main(inPath, outPath)
-	if VERBOSE: print "Done."
+	if VERBOSE: print("Done.")
