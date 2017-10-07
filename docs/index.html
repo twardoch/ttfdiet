@@ -1020,8 +1020,8 @@ the way in which glyphs for precomposed Unicode characters are stored in<br />
 a TrueType-flavored OpenType font, and reduces the font’s file size. </p>
 <h2 id="credits"><a name="user-content-credits" href="#credits" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Credits</h2>
 <ul>
-<li>Ideas and code by: <a href="/Users/adam/Developer/vcs/github.twardoch/pub/ttfdiet/AUTHORS">Karsten Lücke</a> and <a href="/Users/adam/Developer/vcs/github.twardoch/pub/ttfdiet/AUTHORS">Adam Twardoch</a> </li>
-<li>Homepage: <a href="http://github.com/twardoch/ttfdiet">http://github.com/twardoch/ttfdiet</a></li>
+<li>Ideas and code by: <a href="https://github.com/twardoch/ttfdiet/blob/master/AUTHORS">Karsten Lücke</a> and <a href="https://github.com/twardoch/ttfdiet/blob/master/AUTHORS">Adam Twardoch</a> </li>
+<li>Homepage: <a href="http://github.com/twardoch/ttfdiet"><a href="http://github.com/twardoch/ttfdiet"><a href="http://github.com/twardoch/ttfdiet">http://github.com/twardoch/ttfdiet</a></a></a></li>
 <li>Many thanks to <a href="https://github.com/davelab6">Dave Crossland</a> and <a href="https://github.com/googlefonts">Google Fonts</a> for the financial and organizational support. </li>
 </ul>
 <h2 id="disclaimer"><a name="user-content-disclaimer" href="#disclaimer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Disclaimer</h2>
@@ -1088,7 +1088,7 @@ work in web browsers.</p>
 <li>The tool does not process the legacy TrueType “kern” table. </li>
 </ul>
 <h2 id="usage"><a name="user-content-usage" href="#usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Usage</h2>
-<p><pre><code>Usage: python ttfdiet.py [options] inputfont.ttf [outputfont.ttf]
+<pre><code>Usage: python ttfdiet.py [options] inputfont.ttf [outputfont.ttf]
 
 The tool has a number of options, which are listed below.
 To enable an option, specify it with the value 1.
@@ -1127,14 +1127,14 @@ Options:
                         --name)
     -d 0, --dsig=0      add empty 'DSIG' table
 
-</code></pre><br />
-Examples</p>
-<hr />
+</code></pre>
+
+<h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
 <h4 id="example-1"><a name="user-content-example-1" href="#example-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example 1</h4>
-<p>The <a href="/Users/adam/Developer/vcs/github.twardoch/pub/ttfdiet/docs">docs</a> folder contains the original font <em>LatoKernTest-Regular.ttf</em> (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts <em>LatoKernTest-Diet.ttf</em> (that contains the precomposed glyphs, 6,820 bytes) and <em>LatoKernTest-Ultra.ttf</em> (that has blank precomposed glyphs, 6,436 bytes). </p>
-<p>Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if <code>font-feature-settings: 'kern', 'mark';</code> was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The <a href="test.html">test</a> file</p>
+<p>The <a href="https://github.com/twardoch/ttfdiet/tree/master/docs">docs</a> folder contains the original font <em>LatoKernTest-Regular.ttf</em> (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts <em>LatoKernTest-Diet.ttf</em> (that contains the precomposed glyphs, 6,820 bytes) and <em>LatoKernTest-Ultra.ttf</em> (that has blank precomposed glyphs, 6,436 bytes). </p>
+<p>Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if <code>font-feature-settings: 'kern', 'mark';</code> was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The <a href="http://twardoch.github.io/ttfdiet/test.html">test</a> file shows the undieted font, and then the two dieted fonts (Diet and Ultra). </p>
 <h4 id="example-2"><a name="user-content-example-2" href="#example-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example 2</h4>
-<p>The <a href="/Users/adam/Developer/vcs/github.twardoch/pub/ttfdiet/docs">docs</a> folder contains the original font <em>DroidSerif-Regular.ttf</em> (v1.03, size: 248,904 bytes), and the dieted font <em>DroidSerif-Regular.diet.ttf</em> (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. </p>
+<p>The <a href="https://github.com/twardoch/ttfdiet/tree/master/docs">docs</a> folder contains the original font <em>DroidSerif-Regular.ttf</em> (v1.03, size: 248,904 bytes), and the dieted font <em>DroidSerif-Regular.diet.ttf</em> (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. </p>
 <p><pre><code>$ ./ttfdiet.py examples/DroidSerif-Regular.ttf
 Skipping marks with codepoints 031B 0321 0322 0334 0335 0336 0337 0338.
 Dieting DroidSerif-Regular.ttf...

@@ -6,8 +6,8 @@ a TrueType-flavored OpenType font, and reduces the font’s file size.
 
 Credits
 -------
-* Ideas and code by: [Karsten Lücke](./AUTHORS) and [Adam Twardoch](./AUTHORS) 
-* Homepage: http://github.com/twardoch/ttfdiet
+* Ideas and code by: [Karsten Lücke](https://github.com/twardoch/ttfdiet/blob/master/AUTHORS) and [Adam Twardoch](https://github.com/twardoch/ttfdiet/blob/master/AUTHORS) 
+* Homepage: [http://github.com/twardoch/ttfdiet](http://github.com/twardoch/ttfdiet)
 * Many thanks to [Dave Crossland](https://github.com/davelab6) and [Google Fonts](https://github.com/googlefonts) for the financial and organizational support. 
 
 Disclaimer
@@ -129,13 +129,13 @@ Examples
 
 #### Example 1
 
-The [docs](./docs/) folder contains the original font *LatoKernTest-Regular.ttf* (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts *LatoKernTest-Diet.ttf* (that contains the precomposed glyphs, 6,820 bytes) and *LatoKernTest-Ultra.ttf* (that has blank precomposed glyphs, 6,436 bytes). 
+The [docs](https://github.com/twardoch/ttfdiet/tree/master/docs) folder contains the original font *LatoKernTest-Regular.ttf* (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts *LatoKernTest-Diet.ttf* (that contains the precomposed glyphs, 6,820 bytes) and *LatoKernTest-Ultra.ttf* (that has blank precomposed glyphs, 6,436 bytes). 
 
 Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if ` font-feature-settings: 'kern', 'mark';` was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The [test](http://twardoch.github.io/ttfdiet/test.html) file shows the undieted font, and then the two dieted fonts (Diet and Ultra). 
 
 #### Example 2
 
-The [docs](./docs/) folder contains the original font *DroidSerif-Regular.ttf* (v1.03, size: 248,904 bytes), and the dieted font *DroidSerif-Regular.diet.ttf* (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. 
+The [docs](https://github.com/twardoch/ttfdiet/tree/master/docs) folder contains the original font *DroidSerif-Regular.ttf* (v1.03, size: 248,904 bytes), and the dieted font *DroidSerif-Regular.diet.ttf* (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. 
 
 ```
 $ ./ttfdiet.py examples/DroidSerif-Regular.ttf
