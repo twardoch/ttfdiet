@@ -1,0 +1,26 @@
+/* Webfont: LatoKernTest-Regular */
+
+@font-face {
+    font-family: 'LatoKernTest';
+    src: url('LatoKernTest-Regular.woff') format('woff'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'LatoKernDiet';
+    src: url('LatoKernTest-Diet.woff') format('woff'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'LatoKernUltra';
+    src: url('LatoKernTest-Ultra.woff') format('woff'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

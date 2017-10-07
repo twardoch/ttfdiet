@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# ttfdiet v0.803 -- TTF DIacritics Encoding Tool
+# ttfdiet v0.806 -- TTF DIacritics Encoding Tool
 
 # Copyright 2014 Karsten Lücke
 # Copyright 2014 Adam Twardoch
@@ -19,6 +19,7 @@
 # limitations under the License.
 
 # CHANGELOG: 
+#  2017-10-07 v0.806 Adam: Minor tweak
 #  2016-11-25 v0.803 Adam: Minor tweaks with filesystem handling
 #  2014-12-19 v0.802 Adam: minor tweaks
 #  2014-12-18 v0.801 Adam: Rewritten usage and help, added -v option and ability to specify output file
@@ -39,7 +40,10 @@
 import sys
 import os
 import os.path
-import unicodedata
+try: 
+	import unicodedata2 as unicodedata
+except ImportError: 
+	import unicodedata
 from copy import deepcopy
 from struct import pack
 from subprocess import Popen,PIPE
@@ -490,7 +494,10 @@ def removeOutlines(ttx,glyphs_removeOutlinesAndInstructions):
 		return
 	for glyphname in ttx["hmtx"].metrics: # this is a dict!
 		if glyphname in glyphs_removeOutlinesAndInstructions:
-			ttx["hmtx"].metrics[glyphname][1] = 0
+			try: 
+				ttx["hmtx"].metrics[glyphname][1] = 0
+			except: 
+				pass
 
 def renameFont(ttx):
 	# string is prepared only for Win platform name strings ...

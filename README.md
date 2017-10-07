@@ -126,7 +126,15 @@ Options:
 Examples
 --------
 
-The [examples](./examples/) folder contains the original font *DroidSerif-Regular.ttf* (v1.03, size: 248,904 bytes), and the dieted font *DroidSerif-Regular.diet.ttf* (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. 
+#### Example 1
+
+The [docs](./docs/) folder contains the original font *LatoKernTest-Regular.ttf* (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts *LatoKernTest-Diet.ttf* (that contains the precomposed glyphs, 6,820 bytes) and *LatoKernTest-Ultra.ttf* (that has blank precomposed glyphs, 6,436 bytes). 
+
+Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if ` font-feature-settings: 'kern', 'mark';` was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The [test](test.html) file
+
+#### Example 2
+
+The [docs](./docs/) folder contains the original font *DroidSerif-Regular.ttf* (v1.03, size: 248,904 bytes), and the dieted font *DroidSerif-Regular.diet.ttf* (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. 
 
 ```
 $ ./ttfdiet.py examples/DroidSerif-Regular.ttf
