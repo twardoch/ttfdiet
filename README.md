@@ -123,6 +123,7 @@ Options:
     -d 0, --dsig=0      add empty 'DSIG' table
 
 ```
+
 Examples
 --------
 
@@ -130,7 +131,7 @@ Examples
 
 The [docs](./docs/) folder contains the original font *LatoKernTest-Regular.ttf* (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts *LatoKernTest-Diet.ttf* (that contains the precomposed glyphs, 6,820 bytes) and *LatoKernTest-Ultra.ttf* (that has blank precomposed glyphs, 6,436 bytes). 
 
-Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if ` font-feature-settings: 'kern', 'mark';` was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The [test](test.html) file
+Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if ` font-feature-settings: 'kern', 'mark';` was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The [test](http://twardoch.github.io/ttfdiet/test.html) file shows the undieted font, and then the two dieted fonts (Diet and Ultra). 
 
 #### Example 2
 
