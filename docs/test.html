@@ -6,12 +6,30 @@
 <title>LatoKernTest Regular - Web Font Specimen</title>
 <link rel="stylesheet" type="text/css" media="screen" href="LatoKernTest-Regular.css" />
 <style type="text/css" media="screen">
-body { font-size: 42px; font-family: Georgia; }
+body { font-size: 12px; font-family: Verdana; }
+h1 { font-size: 42px; font-family: Verdana; font-weight: normal; }
 </style>
 </head>
 <body>
-<p style="font-family: 'LatoKernTest'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</p>
-<p style="font-family: 'LatoKernDiet'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</p>
-<p style="font-family: 'LatoKernUltra'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</p>
+<h2>Tests</h2>
+<p>Note: the Aringacute (Ǻ) rendering with the acute and ring overlapping in the dieted tests is as intended, since the font does not have the 'mkmk' feature.</p>
+<p>LatoKernTest, no font-feature-settings</p>
+<h1 style="font-family: 'LatoKernTest'; " contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernTest, with font-feature-settings</p>
+<h1 style="font-family: 'LatoKernTest'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernDiet, no font-feature-settings</p>
+<h1 style="font-family: 'LatoKernDiet'; " contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernDiet, with font-feature-settings</p>
+<h1 style="font-family: 'LatoKernDiet'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernUltra, no font-feature-settings</p>
+<h1 style="font-family: 'LatoKernUltra'; " contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernUltra, with font-feature-settings</p>
+<h1 style="font-family: 'LatoKernUltra'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<h2>Chrome and Firefox on macOS 10.12</h2>
+<p><img src="web-Chrome61-macOS1012.png"></p>
+<h2>Safari on macOS 10.12</h2>
+<p><img src="web-Safari41-macOS1012.png"></p>
+<h2>Edge on Windows 10</h2>
+<p><img src="web-Edge-win10.png"></p>
 </body>
 </html>
