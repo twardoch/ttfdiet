@@ -19,6 +19,7 @@
 # limitations under the License.
 
 # CHANGELOG: 
+#  2018-06-29 v0.807 davelab6: Minor tweak to update ots-sanitize and version number
 #  2017-10-07 v0.806 Adam: Minor tweak
 #  2016-11-25 v0.803 Adam: Minor tweaks with filesystem handling
 #  2014-12-19 v0.802 Adam: minor tweaks
@@ -68,7 +69,7 @@ def minusSets( class1,class2): return list( set(class1) - set(class2) )
 #########################################################################################################
 
 TOOL_URL = "https://github.com/twardoch/ttfdiet"
-TOOL_VERSION = "0.802"
+TOOL_VERSION = "0.807"
 VERBOSE                           = 1
 REMOVE_PRECOMPOSED_OUTLINES       = 1
 REMOVE_PRECOMPOSED_FROM_GPOS_KERN = 1
@@ -91,7 +92,7 @@ SKIP_MARKS_FINAL                  = None
 ADD_DUMMY_DSIG                    = 0
 
 OTS_SANITISE                      = 0
-OTS_PATH_OR_COMMAND               = "ot-sanitise" # this expects that the ot-sanitise binary is present in a system-known bin folder
+OTS_PATH_OR_COMMAND               = "ots-sanitize" # this expects that the ot-sanitise binary is present in a system-known bin folder
 
 class NoWrapHelpFormatter(optparse.IndentedHelpFormatter):
  	def _formatter(self, text):
