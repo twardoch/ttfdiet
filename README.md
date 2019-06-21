@@ -40,6 +40,9 @@ Requirements
 
 Main functionality (“diet”)
 ---------------------------
+
+*Also see: [http://kltf.de/ttfdiet](http://kltf.de/ttfdiet)*
+
 The tool applies a “diet” to a .ttf font — it optimizes how precomposed 
 Unicode characters such as “Ä” are expressed in the internal font structures
 of a TrueType-flavored OpenType font. The diet reduces the size of the font, 
