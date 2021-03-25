@@ -731,7 +731,7 @@ def main(inPath, outPath):
     if not cmap: 
         cmap = ttx["cmap"].getcmap(3,1)
     if cmap: 
-        umap = dict((u,n) for u, n in cmap.cmap.iteritems() )
+        umap = dict((u,n) for u, n in cmap.cmap.items() )
 #        nmap = dict((umap[k], k) for k in umap)
 # glyph may be associated with more than one u!!!
         nmap = {}
