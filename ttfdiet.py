@@ -502,9 +502,9 @@ def removeOutlines(ttx,glyphs_removeOutlinesAndInstructions):
 
 def renameFont(ttx):
     # string is prepared only for Win platform name strings ...
-    space         = "".join([ pack(">"+"H",ord(char)) for char in                                                    " " ]) ; char=None
-    renameWith    = "".join([ pack(">"+"H",ord(char)) for char in RENAME_FONT_ADDITION.strip().strip("'").strip('"')+" " ]) ; char=None
-    renameWithout = "".join([ pack(">"+"H",ord(char)) for char in RENAME_FONT_ADDITION.strip().strip("'").strip('"')     ]) ; char=None
+    space         = b"".join([ pack(">"+"H",ord(char)) for char in                                                    " " ]) ; char=None
+    renameWith    = b"".join([ pack(">"+"H",ord(char)) for char in RENAME_FONT_ADDITION.strip().strip("'").strip('"')+" " ]) ; char=None
+    renameWithout = b"".join([ pack(">"+"H",ord(char)) for char in RENAME_FONT_ADDITION.strip().strip("'").strip('"')     ]) ; char=None
     # check font names:
 #    id1 = ""
 #    id4 = ""
