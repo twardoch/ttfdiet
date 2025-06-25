@@ -38,17 +38,19 @@
 #
 #########################################################################################################
 
-import sys
 import os
 import os.path
+import sys
+
 try: 
 	import unicodedata2 as unicodedata
 except ImportError: 
 	import unicodedata
+
+import optparse
 from copy import deepcopy
 from struct import pack
-from subprocess import Popen,PIPE
-import optparse
+from subprocess import PIPE, Popen
 
 try:
 	from fontTools.ttLib import TTFont, TTLibError, newTable
