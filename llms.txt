@@ -1,0 +1,2318 @@
+Project Structure:
+📁 ttfdiet
+├── 📁 docs
+│   ├── 📄 index.html
+│   ├── 📄 LatoKernTest-Diet.fea
+│   ├── 📄 LatoKernTest-Regular.css
+│   └── 📄 test.html
+├── 📄 .gitignore
+├── 📄 _config.yml
+├── 📄 AUTHORS
+├── 📄 CONTRIBUTORS
+├── 📄 LICENSE
+├── 📄 README.md
+└── 📄 ttfdiet.py
+
+
+<documents>
+<document index="1">
+<source>.gitignore</source>
+<document_content>
+# Created by .ignore support plugin (hsz.mobi)
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+
+# Rope project settings
+.ropeproject
+### macOS template
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+.idea
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# Mongo Explorer plugin:
+.idea/**/mongoSettings.xml
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+.idea/misc.xml
+.idea/ttfdiet.iml
+
+</document_content>
+</document>
+
+<document index="2">
+<source>AUTHORS</source>
+<document_content>
+# This is the official list of ttfdiet authors for copyright purposes.
+# This file is distinct from the CONTRIBUTORS files.
+# See the latter for an explanation.
+
+# Names should be added to this file as:
+# Name or Organization <email address>
+# The email address is not required for organizations.
+
+Karsten Lücke <hello@kltf.de>
+Adam Twardoch <adam@twardoch.com>
+
+</document_content>
+</document>
+
+<document index="3">
+<source>CONTRIBUTORS</source>
+<document_content>
+# This is the official list of people who can contribute
+# (and typically have contributed) code to this repository.
+# The AUTHORS file lists the copyright holders; this file
+# lists people. 
+# Names should be added to this file like so:
+#     Name <email address>
+
+Karsten Lücke <hello@kltf.de>
+Adam Twardoch <adam@twardoch.com>
+
+</document_content>
+</document>
+
+<document index="4">
+<source>LICENSE</source>
+<document_content>
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "{}"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright {yyyy} {name of copyright owner}
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+</document_content>
+</document>
+
+<document index="5">
+<source>README.md</source>
+<document_content>
+ttfdiet
+=======
+**ttfdiet** (*TTF DIacritics Encoding Tool*) applies a “diet” to a .ttf font: it modernizes
+the way in which glyphs for precomposed Unicode characters are stored in
+a TrueType-flavored OpenType font, and reduces the font’s file size. 
+
+Credits
+-------
+* Ideas and code by: [Karsten Lücke](https://github.com/twardoch/ttfdiet/blob/master/AUTHORS) and [Adam Twardoch](https://github.com/twardoch/ttfdiet/blob/master/AUTHORS) 
+* Homepage: [http://github.com/twardoch/ttfdiet](http://github.com/twardoch/ttfdiet)
+* Many thanks to [Dave Crossland](https://github.com/davelab6) and [Google Fonts](https://github.com/googlefonts) for the financial and organizational support. 
+
+Disclaimer
+----------
+The tool is **EXPERIMENTAL**, a proof-of-concept, and is intended for experienced 
+font developers.
+
+The tool is intended to create fonts that:
+
+* demonstrate the file size reduction that can be achieved by
+  an optimization method similar to the one used by the tool,
+* test the level of applications’ basic OTL support, most notably for
+  “ccmp” decomposition and “mark”/“mkmk” attachment. To test OTL support,
+  install a dieted font and type a precomposed character such “Ä”, “á”, etc.
+
+This tool is **NOT** intended to produce shipping-quality fonts.
+
+Requirements
+------------
+1. The tool requires Python 2.6 or newer and the fontTools/TTX package from:
+   https://github.com/behdad/fonttools/
+2. inputfont must be a TrueType-flavored (.ttf) fonts that contains
+   a “glyf” table. It does NOT work with CFF-flavored .otf fonts.
+3. inputfont should contain a “GSUB” table.
+4. inputfont should contain combining marks (U+03xx) which should be assigned
+   to the mark class (3) in the “GDEF” table.
+5. inputfont should contain a “mark” GPOS feature that positions the combining
+   mark glyphs over base glyphs.
+6. ot-sanitise from https://github.com/khaledhosny/ots is recommended.
+
+Main functionality (“diet”)
+---------------------------
+
+*Also see: [http://kltf.de/ttfdiet](http://kltf.de/ttfdiet)*
+
+The tool applies a “diet” to a .ttf font — it optimizes how precomposed 
+Unicode characters such as “Ä” are expressed in the internal font structures
+of a TrueType-flavored OpenType font. The diet reduces the size of the font, 
+and also eliminates certain redundant and ambiguous information in the font. 
+
+The diet consists of the following steps:
+
+1. It “blanks” all glyphs that, in the “cmap” table, represent precomposed
+   Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE),
+   i.e. it removes all contours and components for those glyphs from the
+   “glyf” table. Note: the tool cannot process the “CFF” table. Also note 
+   that the glyphs are “blanked” but not deleted, as their presence is 
+   required by the font’s “cmap” table. 
+3. It deletes kerning pairs in the “GPOS” “kern” feature that involve 
+   any glyphs which have been “blanked” in the first step. 
+3. It adds a “GSUB” lookup that substitutes every glyph that represents
+   a precomposed Unicode character with a sequence of glyphs that represent
+   the Unicode canonical decomposition of that precomposed character,
+   and adds the lookup to the “ccmp” feature.
+
+The typical size reduction of a multilingual font is 5–10%.
+
+Optionally, the tool attempts to run OTS (ot-sanitise) on the outputfont. 
+OTS is an open-source tool used by web browsers to verify web fonts before 
+they are displayed. If the ot-sanitise test fails, the font may not reliably 
+work in web browsers.
+
+Limitations
+-----------
+* The tool assumes that the OpenType Layout engine which will use the font will 
+  “do the right thing”, i.e. apply the OpenType “ccmp”, “mark” and “mkmk” features 
+  during the text layout. Unfortunately, some apps, most notably Microsoft Word 
+  and the Adobe CC apps, don’t quite do that, so **the dieted fonts won’t perform 
+  in these apps as expected**. 
+* The tool currently only deletes unneeded kerning pairs from “GPOS” PairPos 
+  Format 1 subtables (single glyph pairs, typically used for “exception kerning”). 
+  The tool currently does not in any way process “GPOS” PairPos Format 2 subtables, 
+  used for “class kerning”. Also, it does not add any contextual kerning. 
+* The tool does not process the legacy TrueType “kern” table. 
+
+Usage
+-----
+```
+Usage: python ttfdiet.py [options] inputfont.ttf [outputfont.ttf]
+
+The tool has a number of options, which are listed below.
+To enable an option, specify it with the value 1.
+To disable an option, specify it with the value 0.
+Not specified options will use the default values shown below.
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -v 1, --verbose=1     print additional information during processing
+
+  File handling:
+    -f 0, --fea=0       save 'ccmp' feature in AFDKO-syntax .fea file
+    -S 0, --sanitise=0  1: test outputfont with 'ot-sanitise'; 2: also remove
+                        outputfont if test fails
+
+  Core diet options:
+    -g 1, --glyf=1      remove components and contours from precomposed glyphs
+    -k 1, --kern=1      remove precomposed glyphs from 'GPOS' kern
+                        PairPosFormat1 subtables
+    -C 1, --ccmp=1      add 'ccmp' subtable that decomposes precomposed glyphs
+    -s list, --skipmarks=list
+                        do not process precomposed glyphs involving these
+                        marks; default list is
+                        031B,0321,0322,0334,0335,0336,0337,0338
+    -a 0, --repmarks=0  report marks missing in font that would allow a better
+                        diet
+
+  Additional diet options:
+    -c 1, --cmap=1      remove all 'cmap' subtables except Windows-platform
+    -n 1, --name=1      remove all 'name' records except Windows-platform
+    -p 1, --post=1      remove 'post' glyph names
+
+  Various options:
+    -r 1, --rename=1    add 'Diet' prefix to 'name' records (also enables
+                        --name)
+    -d 0, --dsig=0      add empty 'DSIG' table
+
+```
+
+Examples
+--------
+
+#### Example 1
+
+The [docs](https://github.com/twardoch/ttfdiet/tree/master/docs) folder contains the original font *LatoKernTest-Regular.ttf* (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts *LatoKernTest-Diet.ttf* (that contains the precomposed glyphs, 6,820 bytes) and *LatoKernTest-Ultra.ttf* (that has blank precomposed glyphs, 6,436 bytes). 
+
+Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if ` font-feature-settings: 'kern', 'mark';` was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The [test](http://twardoch.github.io/ttfdiet/test.html) file shows the undieted font, and then the two dieted fonts (Diet and Ultra). 
+
+#### Example 2
+
+The [docs](https://github.com/twardoch/ttfdiet/tree/master/docs) folder contains the original font *DroidSerif-Regular.ttf* (v1.03, size: 248,904 bytes), and the dieted font *DroidSerif-Regular.diet.ttf* (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. 
+
+```
+$ ./ttfdiet.py examples/DroidSerif-Regular.ttf
+Skipping marks with codepoints 031B 0321 0322 0334 0335 0336 0337 0338.
+Dieting DroidSerif-Regular.ttf...
+'GDEF' table's GlyphClassDef doesn't flag glyph 'uni0487' as mark. Corrected.
+'GDEF' table's GlyphClassDef doesn't flag glyph 'uni20F0' as mark. Corrected.
+Saving examples/DroidSerif-Regular.diet.ttf...
+Diet efficiency: 10.0% (from 248904 to 224000 bytes)
+Done.
+```
+Test results
+------------
+We have performed some tests of a dieted font (*DroidSerif-Regular.diet.ttf*) in some popular applications 
+in some operating systems. If the “OK?” column says “yes”, then the test word *Täćkòs* displayed correctly 
+in the app using the dieted test font. If the column says “no”, then blank glyphs appeared in place 
+of the accented characters (which indicates that the “ccmp” and “mark” features were not applied). 
+
+
+*OK?* | *App* | *Ver* | *OS* | *Note*
+---------| ------| ------| -----| ----
+no | Adobe Illustrator | CC 2014 | OS X 10.10 | Every-line Composer
+no | Adobe Illustrator | CC 2014 | OS X 10.10 | Middle Eastern Composer
+no | Adobe InDesign | CC 2014 | OS X 10.10 | Paragraph Composer
+no | Adobe InDesign | CC 2014 | OS X 10.10 | World-Ready Composer
+no | Adobe Photoshop | CC 2014 | OS X 10.10 | 
+yes | Affinity Designer | 1.0.21458 | OS X 10.10 | 
+yes | Apple Keynote | 6.5 | OS X 10.10 | 
+yes | Apple Pages | 5.5 | OS X 10.10 | 
+yes | Apple Safari | 8 | OS X 10.10 | 
+yes | Apple TextEdit | 1.10 | OS X 10.10 | 
+yes | CorelDRAW! | X7 | Windows 7 | 
+buggy | FontLab Pad | 1.1.0 | OS X 10.10 | marks without base chars
+yes | Google Chrome | 39 | OS X 10.10 | 
+yes | LibreOffice | 4.3 | OS X 10.10 | 
+yes | MS Internet Explorer | 11 | Windows 7 | 
+yes | MS Notepad | 6.1 | Windows 7 | 
+no | MS Word | 2011 | OS X 10.10 | 
+no | MS Word | 2013 | Windows 7 | 
+no | MS WordPad | | Windows 7 | 
+yes | Mozilla Firefox | 34 | OS X 10.10 | 
+buggy | NeoOffice | 2014.6 | OS X 10.10 | wrong kerning
+yes | Opera | 22 | Windows 7 | 
+no | QuarkXPress | 10 | OS X 10.10 | 
+yes | RedleX Mellel | 3.2 | OS X 10.10 | 
+
+Software License
+----------------
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+</document_content>
+</document>
+
+<document index="6">
+<source>_config.yml</source>
+<document_content>
+theme: jekyll-theme-minimal
+</document_content>
+</document>
+
+<document index="7">
+<source>docs/LatoKernTest-Diet.fea</source>
+<document_content>
+#
+# OpenType Layout feature definitions
+# Format: Adobe FDK for OpenType (AFDKO) version 2.5
+# Generated on: 2017-10-07 02:35:58
+# Generated by: OTM 6.3Qt5_64 built_Jan_25_2016
+# Font PostScript name: LatoKernTest-Regular
+# Font version: 2.006
+# Font copyright: Copyright (c) 2010-2014 by tyPoland Lukasz Dziedzic with Reserved Font Name "Lato". Licensed under the SIL Open Font License, Version 1.1. 
+#
+# GPOS lookups found: 2
+# GPOS features found: 2
+# GPOS features: kern, mark
+#
+# GSUB lookups found: 2
+# GSUB features found: 2
+# GSUB features: ccmp, ss01
+#
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+#*************************************************************************
+#   Feature "kern": Kerning (DFLT) 
+#   used in script: DFLT 
+#   used in script: latn 
+#   from a lookup of type GPOS_LOOKUP_TYPE_PAIR_ADJUSTMENT 
+#*************************************************************************
+lookup GPOS_LOOKUP_00000 
+{
+ lookupflag 8;  #hex 0x0008
+    pos A W -380;
+    pos W A -88;
+} GPOS_LOOKUP_00000;
+
+
+#*************************************************************************
+#   Feature "mark": Mark Positioning (DFLT) 
+#   used in script: DFLT 
+#   used in script: latn 
+#   from a lookup of type GPOS_LOOKUP_TYPE_MARK_TO_BASE_ATTACHMENT 
+#*************************************************************************
+lookup GPOS_LOOKUP_00001 
+{
+ lookupflag 0;  #hex 0x0000
+        # Offset to MarkCoverage table 226
+        # Offset to BaseCoverage table 184
+        # ClassCount 2
+        # ---------------
+        # MarkArray table
+        # ---------------
+    markClass [\gravecomb ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\acutecomb ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni0302 ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni030C ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\tildecomb ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni0308 ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni0304 ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni0306 ] <anchor 0 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni030A ] <anchor -1 1514> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni0307 ] <anchor 1 1515> @MARKS_CLASS_0_LUT1_SUB0;
+    markClass [\uni0328 ] <anchor -24 0> @MARKS_CLASS_1_LUT1_SUB0;
+        # ---------------
+        # BaseArray table
+        # ---------------
+    pos base \A 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Aogonek 
+        <anchor 680 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1201 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \W 
+        <anchor 1038 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 0 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Agrave 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Aacute 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Acircumflex 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Atilde 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Adieresis 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Amacron 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Abreve 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Aring 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Aringacute 
+        <anchor 681 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 1202 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Wgrave 
+        <anchor 1038 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 0 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Wacute 
+        <anchor 1038 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 0 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Wcircumflex 
+        <anchor 1038 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 0 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+    pos base \Wdieresis 
+        <anchor 1038 1514> mark @MARKS_CLASS_0_LUT1_SUB0 
+        <anchor 0 0> mark @MARKS_CLASS_1_LUT1_SUB0 ;
+} GPOS_LOOKUP_00001;
+
+
+
+
+
+#***** Done. ******
+feature kern {
+        lookup GPOS_LOOKUP_00000;
+} kern;
+
+feature mark {
+        lookup GPOS_LOOKUP_00001;
+} mark;
+
+#*************************************************************************
+#   Feature "ss01": to 'ss20' Stylistic Set 1 to 20 
+#   used in script: DFLT 
+#   used in script: latn 
+#   from a lookup of type GSUB_LOOKUP_TYPE_SINGLE 
+#*************************************************************************
+lookup GSUB_LOOKUP_00000 
+{
+ lookupflag 0; # hex 0x0000
+    sub \A by \W;
+} GSUB_LOOKUP_00000;
+
+
+#*************************************************************************
+#   Feature "ccmp": Glyph Composition / Decomposition 
+#   used in script: DFLT 
+#   used in script: latn 
+#   from a lookup of type GSUB_LOOKUP_TYPE_MULTIPLE 
+#*************************************************************************
+lookup GSUB_LOOKUP_00001 
+{
+ lookupflag 0; # hex 0x0000
+    sub \Aogonek by \A \uni0328 ;
+    sub \Agrave by \A \gravecomb ;
+    sub \Aacute by \A \acutecomb ;
+    sub \Acircumflex by \A \uni0302 ;
+    sub \Atilde by \A \tildecomb ;
+    sub \Adieresis by \A \uni0308 ;
+    sub \Amacron by \A \uni0304 ;
+    sub \Abreve by \A \uni0306 ;
+    sub \Aring by \A \uni030A ;
+    sub \Aringacute by \A \uni030A \acutecomb ;
+    sub \Wgrave by \W \gravecomb ;
+    sub \Wacute by \W \acutecomb ;
+    sub \Wcircumflex by \W \uni0302 ;
+    sub \Wdieresis by \W \uni0308 ;
+} GSUB_LOOKUP_00001;
+
+
+feature ccmp {
+        lookup GSUB_LOOKUP_00001;
+} ccmp;
+
+feature ss01 {
+        lookup GSUB_LOOKUP_00000;
+} ss01;
+
+#
+# Export of the GDEF table
+#
+
+@SIMPLE = [\A \Aogonek \W \Agrave 
+        \Aacute \Acircumflex \Atilde \Adieresis \Amacron 
+        \Abreve \Aring \Aringacute \Wgrave \Wacute 
+        \Wcircumflex \Wdieresis ];
+@MARKS = [\gravecomb \acutecomb \uni0302 \uni030C 
+        \tildecomb \uni0308 \uni0304 \uni0306 \uni030A 
+        \uni0307 \uni0328 ];
+
+
+table GDEF {
+
+    GlyphClassDef @SIMPLE, , @MARKS, ;
+
+} GDEF;
+
+
+</document_content>
+</document>
+
+<document index="8">
+<source>docs/LatoKernTest-Regular.css</source>
+<document_content>
+/* Webfont: LatoKernTest-Regular */
+
+@font-face {
+    font-family: 'LatoKernTest';
+    src: url('LatoKernTest-Regular.woff') format('woff'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'LatoKernDiet';
+    src: url('LatoKernTest-Diet.woff') format('woff'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'LatoKernUltra';
+    src: url('LatoKernTest-Ultra.woff') format('woff'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+</document_content>
+</document>
+
+<document index="9">
+<source>docs/index.html</source>
+<document_content>
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>README</title></head><body><article class="markdown-body"><h1 id="ttfdiet"><a name="user-content-ttfdiet" href="#ttfdiet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ttfdiet</h1>
+<p><strong>ttfdiet</strong> (<em>TTF DIacritics Encoding Tool</em>) applies a “diet” to a .ttf font: it modernizes<br />
+the way in which glyphs for precomposed Unicode characters are stored in<br />
+a TrueType-flavored OpenType font, and reduces the font’s file size. </p>
+<h2 id="credits"><a name="user-content-credits" href="#credits" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Credits</h2>
+<ul>
+<li>Ideas and code by: <a href="https://github.com/twardoch/ttfdiet/blob/master/AUTHORS">Karsten Lücke</a> and <a href="https://github.com/twardoch/ttfdiet/blob/master/AUTHORS">Adam Twardoch</a> </li>
+<li>Homepage: <a href="http://github.com/twardoch/ttfdiet"><a href="http://github.com/twardoch/ttfdiet"><a href="http://github.com/twardoch/ttfdiet">http://github.com/twardoch/ttfdiet</a></a></a></li>
+<li>Many thanks to <a href="https://github.com/davelab6">Dave Crossland</a> and <a href="https://github.com/googlefonts">Google Fonts</a> for the financial and organizational support. </li>
+</ul>
+<h2 id="disclaimer"><a name="user-content-disclaimer" href="#disclaimer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Disclaimer</h2>
+<p>The tool is <strong>EXPERIMENTAL</strong>, a proof-of-concept, and is intended for experienced <br />
+font developers.</p>
+<p>The tool is intended to create fonts that:</p>
+<ul>
+<li>demonstrate the file size reduction that can be achieved by<br />
+  an optimization method similar to the one used by the tool,</li>
+<li>test the level of applications’ basic OTL support, most notably for<br />
+  “ccmp” decomposition and “mark”/“mkmk” attachment. To test OTL support,<br />
+  install a dieted font and type a precomposed character such “Ä”, “á”, etc.</li>
+</ul>
+<p>This tool is <strong>NOT</strong> intended to produce shipping-quality fonts.</p>
+<h2 id="requirements"><a name="user-content-requirements" href="#requirements" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Requirements</h2>
+<ol>
+<li>The tool requires Python 2.6 or newer and the fontTools/TTX package from:<br />
+<a href="https://github.com/behdad/fonttools/">https://github.com/behdad/fonttools/</a></li>
+<li>inputfont must be a TrueType-flavored (.ttf) fonts that contains<br />
+   a “glyf” table. It does NOT work with CFF-flavored .otf fonts.</li>
+<li>inputfont should contain a “GSUB” table.</li>
+<li>inputfont should contain combining marks (U+03xx) which should be assigned<br />
+   to the mark class (3) in the “GDEF” table.</li>
+<li>inputfont should contain a “mark” GPOS feature that positions the combining<br />
+   mark glyphs over base glyphs.</li>
+<li>ot-sanitise from <a href="https://github.com/khaledhosny/ots">https://github.com/khaledhosny/ots</a> is recommended.</li>
+</ol>
+<h2 id="main-functionality-diet"><a name="user-content-main-functionality-diet" href="#main-functionality-diet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Main functionality (“diet”)</h2>
+<p>The tool applies a “diet” to a .ttf font — it optimizes how precomposed <br />
+Unicode characters such as “Ä” are expressed in the internal font structures<br />
+of a TrueType-flavored OpenType font. The diet reduces the size of the font, <br />
+and also eliminates certain redundant and ambiguous information in the font. </p>
+<p>The diet consists of the following steps:</p>
+<ol>
+<li>It “blanks” all glyphs that, in the “cmap” table, represent precomposed<br />
+   Unicode characters (such as U+00E1, LATIN SMALL LETTER A WITH ACUTE),<br />
+   i.e. it removes all contours and components for those glyphs from the<br />
+   “glyf” table. Note: the tool cannot process the “CFF” table. Also note <br />
+   that the glyphs are “blanked” but not deleted, as their presence is <br />
+   required by the font’s “cmap” table. </li>
+<li>It deletes kerning pairs in the “GPOS” “kern” feature that involve <br />
+   any glyphs which have been “blanked” in the first step. </li>
+<li>It adds a “GSUB” lookup that substitutes every glyph that represents<br />
+   a precomposed Unicode character with a sequence of glyphs that represent<br />
+   the Unicode canonical decomposition of that precomposed character,<br />
+   and adds the lookup to the “ccmp” feature.</li>
+</ol>
+<p>The typical size reduction of a multilingual font is 5–10%.</p>
+<p>Optionally, the tool attempts to run OTS (ot-sanitise) on the outputfont. <br />
+OTS is an open-source tool used by web browsers to verify web fonts before <br />
+they are displayed. If the ot-sanitise test fails, the font may not reliably <br />
+work in web browsers.</p>
+<h2 id="limitations"><a name="user-content-limitations" href="#limitations" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Limitations</h2>
+<ul>
+<li>The tool assumes that the OpenType Layout engine which will use the font will <br />
+  “do the right thing”, i.e. apply the OpenType “ccmp”, “mark” and “mkmk” features <br />
+  during the text layout. Unfortunately, some apps, most notably Microsoft Word <br />
+  and the Adobe CC apps, don’t quite do that, so <strong>the dieted fonts won’t perform <br />
+  in these apps as expected</strong>. </li>
+<li>The tool currently only deletes unneeded kerning pairs from “GPOS” PairPos <br />
+  Format 1 subtables (single glyph pairs, typically used for “exception kerning”). <br />
+  The tool currently does not in any way process “GPOS” PairPos Format 2 subtables, <br />
+  used for “class kerning”. Also, it does not add any contextual kerning. </li>
+<li>The tool does not process the legacy TrueType “kern” table. </li>
+</ul>
+<h2 id="usage"><a name="user-content-usage" href="#usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Usage</h2>
+<pre><code>Usage: python ttfdiet.py [options] inputfont.ttf [outputfont.ttf]
+
+The tool has a number of options, which are listed below.
+To enable an option, specify it with the value 1.
+To disable an option, specify it with the value 0.
+Not specified options will use the default values shown below.
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -v 1, --verbose=1     print additional information during processing
+
+  File handling:
+    -f 0, --fea=0       save 'ccmp' feature in AFDKO-syntax .fea file
+    -S 0, --sanitise=0  1: test outputfont with 'ot-sanitise'; 2: also remove
+                        outputfont if test fails
+
+  Core diet options:
+    -g 1, --glyf=1      remove components and contours from precomposed glyphs
+    -k 1, --kern=1      remove precomposed glyphs from 'GPOS' kern
+                        PairPosFormat1 subtables
+    -C 1, --ccmp=1      add 'ccmp' subtable that decomposes precomposed glyphs
+    -s list, --skipmarks=list
+                        do not process precomposed glyphs involving these
+                        marks; default list is
+                        031B,0321,0322,0334,0335,0336,0337,0338
+    -a 0, --repmarks=0  report marks missing in font that would allow a better
+                        diet
+
+  Additional diet options:
+    -c 1, --cmap=1      remove all 'cmap' subtables except Windows-platform
+    -n 1, --name=1      remove all 'name' records except Windows-platform
+    -p 1, --post=1      remove 'post' glyph names
+
+  Various options:
+    -r 1, --rename=1    add 'Diet' prefix to 'name' records (also enables
+                        --name)
+    -d 0, --dsig=0      add empty 'DSIG' table
+
+</code></pre>
+
+<h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
+<h4 id="example-1"><a name="user-content-example-1" href="#example-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example 1</h4>
+<p>The <a href="https://github.com/twardoch/ttfdiet/tree/master/docs">docs</a> folder contains the original font <em>LatoKernTest-Regular.ttf</em> (size: 8,496 bytes), which only has a few glyphs: A and W plus some accented variants and composing marks. There are also the two dieted fonts <em>LatoKernTest-Diet.ttf</em> (that contains the precomposed glyphs, 6,820 bytes) and <em>LatoKernTest-Ultra.ttf</em> (that has blank precomposed glyphs, 6,436 bytes). </p>
+<p>Testing reveals that the dieted fonts correctly display the dynamically composed base+mark combinations, and kerning, in web browsers if <code>font-feature-settings: 'kern', 'mark';</code> was explicitly applied. If these features are not explicitly applied, some browsers don’t apply kerning. The <a href="http://twardoch.github.io/ttfdiet/test.html">test</a> file shows the undieted font, and then the two dieted fonts (Diet and Ultra). </p>
+<h4 id="example-2"><a name="user-content-example-2" href="#example-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example 2</h4>
+<p>The <a href="https://github.com/twardoch/ttfdiet/tree/master/docs">docs</a> folder contains the original font <em>DroidSerif-Regular.ttf</em> (v1.03, size: 248,904 bytes), and the dieted font <em>DroidSerif-Regular.diet.ttf</em> (size: 224,000 bytes). In this case, the diet efficiency is 10%. The typical size reduction for multilingual .ttf fonts will be about 5–10%. </p>
+<p><pre><code>$ ./ttfdiet.py examples/DroidSerif-Regular.ttf
+Skipping marks with codepoints 031B 0321 0322 0334 0335 0336 0337 0338.
+Dieting DroidSerif-Regular.ttf...
+'GDEF' table's GlyphClassDef doesn't flag glyph 'uni0487' as mark. Corrected.
+'GDEF' table's GlyphClassDef doesn't flag glyph 'uni20F0' as mark. Corrected.
+Saving examples/DroidSerif-Regular.diet.ttf...
+Diet efficiency: 10.0% (from 248904 to 224000 bytes)
+Done.
+</code></pre><br />
+Test results</p>
+<hr />
+<p>We have performed some tests of a dieted font (<em>DroidSerif-Regular.diet.ttf</em>) in some popular applications <br />
+in some operating systems. If the “OK?” column says “yes”, then the test word <em>Täćkòs</em> displayed correctly <br />
+in the app using the dieted test font. If the column says “no”, then blank glyphs appeared in place <br />
+of the accented characters (which indicates that the “ccmp” and “mark” features were not applied). </p>
+<table>
+<thead>
+<tr>
+<th><em>OK?</em></th>
+<th><em>App</em></th>
+<th><em>Ver</em></th>
+<th><em>OS</em></th>
+<th><em>Note</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no</td>
+<td>Adobe Illustrator</td>
+<td>CC 2014</td>
+<td>OS X 10.10</td>
+<td>Every-line Composer</td>
+</tr>
+<tr>
+<td>no</td>
+<td>Adobe Illustrator</td>
+<td>CC 2014</td>
+<td>OS X 10.10</td>
+<td>Middle Eastern Composer</td>
+</tr>
+<tr>
+<td>no</td>
+<td>Adobe InDesign</td>
+<td>CC 2014</td>
+<td>OS X 10.10</td>
+<td>Paragraph Composer</td>
+</tr>
+<tr>
+<td>no</td>
+<td>Adobe InDesign</td>
+<td>CC 2014</td>
+<td>OS X 10.10</td>
+<td>World-Ready Composer</td>
+</tr>
+<tr>
+<td>no</td>
+<td>Adobe Photoshop</td>
+<td>CC 2014</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Affinity Designer</td>
+<td>1.0.21458</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Apple Keynote</td>
+<td>6.5</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Apple Pages</td>
+<td>5.5</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Apple Safari</td>
+<td>8</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Apple TextEdit</td>
+<td>1.10</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>CorelDRAW!</td>
+<td>X7</td>
+<td>Windows 7</td>
+<td></td>
+</tr>
+<tr>
+<td>buggy</td>
+<td>FontLab Pad</td>
+<td>1.1.0</td>
+<td>OS X 10.10</td>
+<td>marks without base chars</td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Google Chrome</td>
+<td>39</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>LibreOffice</td>
+<td>4.3</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>MS Internet Explorer</td>
+<td>11</td>
+<td>Windows 7</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>MS Notepad</td>
+<td>6.1</td>
+<td>Windows 7</td>
+<td></td>
+</tr>
+<tr>
+<td>no</td>
+<td>MS Word</td>
+<td>2011</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>no</td>
+<td>MS Word</td>
+<td>2013</td>
+<td>Windows 7</td>
+<td></td>
+</tr>
+<tr>
+<td>no</td>
+<td>MS WordPad</td>
+<td></td>
+<td>Windows 7</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Mozilla Firefox</td>
+<td>34</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>buggy</td>
+<td>NeoOffice</td>
+<td>2014.6</td>
+<td>OS X 10.10</td>
+<td>wrong kerning</td>
+</tr>
+<tr>
+<td>yes</td>
+<td>Opera</td>
+<td>22</td>
+<td>Windows 7</td>
+<td></td>
+</tr>
+<tr>
+<td>no</td>
+<td>QuarkXPress</td>
+<td>10</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+<tr>
+<td>yes</td>
+<td>RedleX Mellel</td>
+<td>3.2</td>
+<td>OS X 10.10</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="software-license"><a name="user-content-software-license" href="#software-license" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Software License</h2>
+<p>Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p></article></body></html>
+</document_content>
+</document>
+
+<document index="10">
+<source>docs/test.html</source>
+<document_content>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta content="en-us" http-equiv="Content-Language"/>
+<title>LatoKernTest Regular - Web Font Specimen</title>
+<link rel="stylesheet" type="text/css" media="screen" href="LatoKernTest-Regular.css" />
+<style type="text/css" media="screen">
+body { font-size: 12px; font-family: Verdana; }
+h1 { font-size: 42px; font-family: Verdana; font-weight: normal; }
+</style>
+</head>
+<body>
+<h2>Tests</h2>
+<p>Note: the Aringacute (Ǻ) rendering with the acute and ring overlapping in the dieted tests is as intended, since the font does not have the 'mkmk' feature.</p>
+<p>LatoKernTest, no font-feature-settings</p>
+<h1 style="font-family: 'LatoKernTest'; " contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernTest, with font-feature-settings</p>
+<h1 style="font-family: 'LatoKernTest'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernDiet, no font-feature-settings</p>
+<h1 style="font-family: 'LatoKernDiet'; " contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernDiet, with font-feature-settings</p>
+<h1 style="font-family: 'LatoKernDiet'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernUltra, no font-feature-settings</p>
+<h1 style="font-family: 'LatoKernUltra'; " contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<p>LatoKernUltra, with font-feature-settings</p>
+<h1 style="font-family: 'LatoKernUltra'; font-feature-settings: 'kern' on, 'mark' on;" contenteditable="true">AW ĄWÀWÁWÂWÃWÄWĀWĂWÅWǺW AẀAẂAŴAẄ</h1>
+<h2>Chrome and Firefox on macOS 10.12</h2>
+<p><img src="web-Chrome61-macOS1012.png"></p>
+<h2>Safari on macOS 10.12</h2>
+<p><img src="web-Safari41-macOS1012.png"></p>
+<h2>Edge on Windows 10</h2>
+<p><img src="web-Edge-win10.png"></p>
+</body>
+</html>
+
+</document_content>
+</document>
+
+# File: /Users/adam/Developer/vcs/github.twardoch/pub/ttfdiet/ttfdiet.py
+# Language: python
+
+import os
+import os.path
+import sys
+import unicodedata2 as unicodedata
+import unicodedata
+import optparse
+from copy import deepcopy
+from struct import pack
+from subprocess import PIPE, Popen
+from fontTools.ttLib import TTFont, TTLibError, newTable
+from fontTools.ttLib.tables.otTables import *
+from sets import Set as set
+
+class NoWrapHelpFormatter(o, p, t, p, a, r, s, e, ., I, n, d, e, n, t, e, d, H, e, l, p, F, o, r, m, a, t, t, e, r):
+    def _formatter((self, text)):
+
+def cleanUpList((l)):
+
+def strictSets((class1,class2)):
+
+def minusSets(( class1,class2)):
+
+def _formatter((self, text)):
+
+def format_description((self, description)):
+
+def format_epilog((self, epilog)):
+
+def handleOptions(()):
+
+def saveFile((data,file)):
+
+def unicodeIntToHexstr((intUnicode)):
+
+def testFont((ttx,umap,nmap,markGlyphs)):
+
+def getMarkGlyphs((ttx)):
+
+def removeOutlines((ttx,glyphs_removeOutlinesAndInstructions)):
+
+def renameFont((ttx)):
+
+def removeAllButWinNameRecords((ttx)):
+
+def removeAllButWinCmapSubtable((ttx)):
+
+def removeGPOSkern((ttx,glyphs_removeOutlinesAndInstructions)):
+
+def addCcmpLookup((ttx,ccmpSubs)):
+
+def removePostNames((ttx)):
+
+def addDummyDSIG((ttx)):
+
+def main((inPath, outPath)):
+
+def getDecompositionData((u,missingMarks)):
+
+
+</documents>
